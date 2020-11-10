@@ -1,23 +1,19 @@
 <script>
-	let name;
-	let address;
+		let storeForm = {};
 	
 	function alerts() {
-		let storeForm = {
-			"name": name,
-			"address": address,
-			};
 		alert(storeForm.name);
 		alert(storeForm.address);
 	};
 </script>
 
 <div>
-	<form method="post" on:submit={alerts}>
+	<form>
 		<label for="Nome">Nome da loja</label>
-		<input type="text" name="nome" bind:value={name} placeholder="Insira o nome:" required>
+		<input type="text" name="nome" bind:value={storeForm.name} placeholder="Insira o nome:" required>
 		<label for="Endereço">Endereço da loja</label>
-		<input type="text" name="endereço" bind:value={address} placeholder="Insira o endereço:" required>
-		<button type="submit">Enviar formulário</button>
+		<input type="text" name="endereço" bind:value={storeForm.address} placeholder="Insira o endereço:" required>
+		<button on:click|preventDefault={()=> alerts()}>Enviar formulário</button>
 	</form>
+	
 </div>
